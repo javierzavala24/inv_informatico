@@ -16,16 +16,11 @@ namespace Inv_Informatico.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var hardwareBL = new HardwareBL();
             var listadeHardware = hardwareBL.ObtenerHardware();
-            foreach (var hardware in listadeHardware)
-            {
-                MessageBox.Show(hardware.Descripcion);
-            }
+
+            listadeHardwareBindingSource.DataSource = listadeHardware;
         }
+
     }
 }
