@@ -1,0 +1,12 @@
+﻿@model List<Inv_Informatico.Web.Models.HardwareModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Productos</h2>
+
+@foreach (var hardware in Model)
+{   
+    <p>@hardware.Id @hardware.Descripcion</p>
+
+}
