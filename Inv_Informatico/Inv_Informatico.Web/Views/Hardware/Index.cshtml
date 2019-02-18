@@ -1,12 +1,31 @@
-﻿@model List<Inv_Informatico.Web.Models.HardwareModel>
+﻿@model List<Inv_Informatico.BL.Hardware>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Productos</h2>
+<h2>Hardware</h2>
 
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Marca
+            </th>
+        </tr>
+    </thead>
 @foreach (var hardware in Model)
-{   
-    <p>@hardware.Id @hardware.Descripcion</p>
-
-}
+{
+    <tr>
+        <td>@hardware.Id</td>
+        <td>@hardware.Descripcion</td>
+        <td>@hardware.Marca</td>
+    </tr>
+}   
+ 
+</table>
