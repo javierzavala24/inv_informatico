@@ -136,12 +136,21 @@
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BodegasController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HardwareController.cs" />
+    <Compile Include="Controllers\UbicacionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,6 +170,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Hardware\Index.cshtml" />
+    <Content Include="Views\Hardware\Crear.cshtml" />
+    <Content Include="Views\Hardware\Editar.cshtml" />
+    <Content Include="Views\Hardware\Detalle.cshtml" />
+    <Content Include="Views\Hardware\Eliminar.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Categorias\Crear.cshtml" />
+    <Content Include="Views\Categorias\Editar.cshtml" />
+    <Content Include="Views\Categorias\Detalle.cshtml" />
+    <Content Include="Views\Categorias\Eliminar.cshtml" />
+    <Content Include="Views\Bodegas\Index.cshtml" />
+    <Content Include="Views\Bodegas\Crear.cshtml" />
+    <Content Include="Views\Bodegas\Editar.cshtml" />
+    <Content Include="Views\Bodegas\Detalle.cshtml" />
+    <Content Include="Views\Bodegas\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,7 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Productos\" />
+    <Folder Include="Views\Ubicaciones\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inv_Informatico.BL\Inv_Informatico.BL.csproj">
