@@ -9,19 +9,19 @@ namespace Inv_Informatico.WebAdmin.Controllers
 {
      public class UbicacionesController : Controller
     {
-        UbicacionBL _ubicacionBL;
-        BodegasBL _bodegasBL;
+        UbicacionesBL _UbicacionesBL;
+        BodegasBL _BodegasBL;
 
         public UbicacionesController()
         {
-            _ubicacionBL = new UbicacionBL();
-            _bodegasBL = new BodegasBL();
+            _UbicacionesBL = new UbicacionesBL();
+            _BodegasBL = new BodegasBL();
         }
 
         // GET: Ubicaciones
         public ActionResult Index()
         {
-            var listadeUbicaciones = _ubicacionBL.ObtenerUbicacion();
+            var listadeUbicaciones = _UbicacionesBL.ObtenerUbicacion();
 
             return View(listadeUbicaciones);
         }
@@ -29,11 +29,8 @@ namespace Inv_Informatico.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevoUbicacion = new Ubicacion();
-            var bodegas = _bodegasBL.ObtenerBodegas();
-
-
-            ViewBag.BodegaId = 
-                new SelectList(bodegas, "Id", "Descripcion");
+            var bodegas = _BodegasBL.ObtenerBodegas();
+            ViewBag.ListaBodegas = new SelectList(bodegas, "Id", "Descripcion");
 
             return View(nuevoUbicacion);
         }
@@ -41,32 +38,20 @@ namespace Inv_Informatico.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Crear(Ubicacion ubicacion)
         {
-          
-                if (ubicacion.BodegaId == 0)
-                {
-                    ModelState.AddModelError("BodegaId", "Seleccione una categoria");
-                    return View(ubicacion);
 
-                _ubicacionBL.GuardarUbicacion(ubicacion);
-
-                return RedirectToAction("Index");
-            }
-
-            var bodegas = _bodegasBL.ObtenerBodegas();
-
-            ViewBag.BodegaId =
-                new SelectList(bodegas, "Id", "Descripcion");
+            var bodegas = _BodegasBL.ObtenerBodegas();
+            ViewBag.ListaBodegas= new SelectList(bodegas, "Id", "Descripcion");
 
             return View(ubicacion);
+
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar(int Id)
         {
-            var ubicacion = _ubicacionBL.ObtenerUbicacion(id);
-            var bodegas = _bodegasBL.ObtenerBodegas();
+            var ubicacion = _UbicacionesBL.ObtenerUbicacion(Id);
+            var bodegas = _BodegasBL.ObtenerBodegas();
 
-            ViewBag.BodegaId =
-                new SelectList(bodegas, "Id", "Descripcion", ubicacion.BodegaId);
+            ViewBag.BodegaId = new SelectList(bodegas, "id", "Descripcion", ubicacion.BodegaId);
 
             return View(ubicacion);
         }
@@ -76,45 +61,35 @@ namespace Inv_Informatico.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ubicacion.BodegaId == 0)
-                {
-                    ModelState.AddModelError("BodegaId", "Seleccione una categoria");
-                    return View(ubicacion);
-                }
-
-              
-
-                _ubicacionBL.GuardarUbicacion(ubicacion);
-
-                return RedirectToAction("Index");
+                _UbicacionesBL.GuardarUbicacion(ubicacion);
+                return RedirectToAction("Index");   
             }
+            var bodegas = _BodegasBL.ObtenerBodegas();
 
-            var bodegas = _bodegasBL.ObtenerBodegas();
+           ViewBag.BodegaId =
+           new SelectList(bodegas, "Id", "Descripcion");
 
-            ViewBag.BodegaId =
-                new SelectList(bodegas, "Id", "Descripcion");
-
-            return View(ubicacion);
+           return View(ubicacion);
         }
 
         public ActionResult Detalle(int id)
         {
-            var ubicacion = _ubicacionBL.ObtenerUbicacion(id);
+            var ubicacion = _UbicacionesBL.ObtenerUbicacion(id);
 
             return View(ubicacion);
         }
 
         public ActionResult Eliminar(int id)
         {
-            var ubicacion = _ubicacionBL.ObtenerUbicacion(id);
+            var ubicacion = _UbicacionesBL.ObtenerUbicacion(id);
 
-            return View(ubicacion);
+            return View(id);
         }
 
         [HttpPost]
         public ActionResult Eliminar(Ubicacion ubicacion)
         {
-            _ubicacionBL.EliminarUbicacion(ubicacion.Id);
+            _UbicacionesBL.EliminarUbicacion(ubicacion.Id);
 
             return RedirectToAction("Index");
         }

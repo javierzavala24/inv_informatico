@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Inv_Informatico.BL.Bodega>
+﻿@model IEnumerable<Inv_Informatico.BL.Ubicacion>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Bodegas</h2>
+<h2>Ubicaciones</h2>
 
 <p>
-    @Html.ActionLink("Crear nueva bodega", "Crear")
+    @Html.ActionLink("Crear nueva Ubicacion", "Crear")
 </p>
 <table class="table">
     <tr>
@@ -24,7 +24,7 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Detalles", new { id=item.Id }) |
             @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
         </td>
     </tr>

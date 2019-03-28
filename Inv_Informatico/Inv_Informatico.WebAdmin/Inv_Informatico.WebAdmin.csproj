@@ -185,6 +185,11 @@
     <Content Include="Views\Bodegas\Editar.cshtml" />
     <Content Include="Views\Bodegas\Detalle.cshtml" />
     <Content Include="Views\Bodegas\Eliminar.cshtml" />
+    <Content Include="Views\Ubicaciones\Index.cshtml" />
+    <Content Include="Views\Ubicaciones\Crear.cshtml" />
+    <Content Include="Views\Ubicaciones\Editar.cshtml" />
+    <Content Include="Views\Ubicaciones\Detalle.cshtml" />
+    <Content Include="Views\Ubicaciones\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,7 +202,6 @@
     <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Productos\" />
-    <Folder Include="Views\Ubicaciones\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inv_Informatico.BL\Inv_Informatico.BL.csproj">

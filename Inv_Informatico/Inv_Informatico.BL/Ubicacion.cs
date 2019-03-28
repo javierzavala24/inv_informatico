@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Inv_Informatico.BL;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Inv_Informatico.BL
 {
@@ -16,8 +19,7 @@ namespace Inv_Informatico.BL
         [MaxLength(20, ErrorMessage = "Ingrese un maximo de 20 caracteres")]
         public string Descripcion { get; set; }
 
-        public int BodegaId { get; set; }
-        public int Bodega Bodega {get; set;}
-
+        public Bodega BodegaId {get; set;}
+        public Bodega Bodega {get; set;}
     }
 }

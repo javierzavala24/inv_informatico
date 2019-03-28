@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Inv_Informatico.BL
 {
-    public class UbicacionBL
+    public class UbicacionesBL
     {
  
         Contexto _contexto;
     public List<Ubicacion> ListadeUbicacion { get; set; }
 
-    public UbicacionBL()
+    public UbicacionesBL()
     {
         _contexto = new Contexto();
         ListadeUbicacion = new List<Ubicacion>();
@@ -20,10 +20,8 @@ namespace Inv_Informatico.BL
 
     public List<Ubicacion> ObtenerUbicacion()
     {
-        ListadeUbicacion = _contexto.Ubicaciones
+            ListadeUbicacion = _contexto.Ubicaciones
             .Include("Bodega")
-            .OrderBy(r => r.Bodega.Descripcion)
-            .ThenBy(r => r.Descripcion)
             .ToList();
 
         return ListadeUbicacion;
@@ -40,7 +38,6 @@ namespace Inv_Informatico.BL
             var ubicacionExistente = _contexto.Ubicaciones.Find(ubicacion.Id);
 
             ubicacionExistente.Descripcion = ubicacion.Descripcion;
-            ubicacionExistente.BodegaId = ubicacion.BodegaId;
         }
 
         _contexto.SaveChanges();

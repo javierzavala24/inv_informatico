@@ -24,9 +24,9 @@ namespace Inv_Informatico.BL
 
     
 
-    public  DbSet <Hardware> Hardware { get; set; }
+    public DbSet <Hardware> Hardware { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Bodega> Bodegas { get; set; }
-   public DbSet<Ubicacion> Ubicacion { get; set; }
+    public DbSet<Ubicacion> Ubicaciones { get; set; }
     }
 }
